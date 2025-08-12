@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 ![Steins;Gate OS Logo](Steins;Logo.png)
 
 
@@ -42,6 +41,3 @@ _Theories are nothing more than words. Accept what you’ve seen._
 
 ---
 
-=======
-# Steins-Gate_OS
->>>>>>> 9d021530263f55c84e9a7de072d39ff772ce62a6
