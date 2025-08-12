@@ -1,0 +1,44 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+W="$HOME/Pictures/SteinsGate-Wallpapers"
+have_gsettings(){ command -v gsettings >/dev/null 2>&1; }
+
+pick_by_clock() {
+  HOUR=$(date +%H)
+  if   [ "$HOUR" -ge 5 ]  && [ "$HOUR" -lt 11 ]; then echo "$W/morning.png"
+  elif [ "$HOUR" -ge 11 ] && [ "$HOUR" -lt 17 ]; then echo "$W/day.png"
+  elif [ "$HOUR" -ge 17 ] && [ "$HOUR" -lt 21 ]; then echo "$W/evening.png"
+  else echo "$W/night.png"; fi
+}
+
+pick_next() {
+  # rotate through all images in folder (png/jpg)
+  mapfile -t imgs < <(find "$W" -maxdepth 1 \( -iname '*.png' -o -iname '*.jpg' -o -iname '*.jpeg' \) | sort)
+  [ ${#imgs[@]} -eq 0 ] && { echo "$(pick_by_clock)"; exit 0; }
+  # store last used
+  state="$HOME/.cache/sg_wall_last"
+  last=""; [ -f "$state" ] && last=$(cat "$state")
+  next="${imgs[0]}"
+  for i in "${!imgs[@]}"; do
+    if [ "${imgs[$i]}" = "$last" ]; then
+      ni=$(( (i + 1) % ${#imgs[@]} ))
+      next="${imgs[$ni]}"
+      break
+    fi
+  done
+  echo "$next" | tee "$state"
+}
+
+MODE="${1:-auto}"  # auto/byclock/next
+FILE=""
+case "$MODE" in
+  byclock) FILE="$(pick_by_clock)";;
+  next)    FILE="$(pick_next)";;
+  auto)    FILE="$(pick_by_clock)";;
+  *) echo "usage: sg-wall [auto|byclock|next]"; exit 1;;
+esac
+
+if have_gsettings && [ -f "$FILE" ]; then
+  gsettings set org.cinnamon.desktop.background picture-uri "file://$FILE" 2>/dev/null || true
+fi

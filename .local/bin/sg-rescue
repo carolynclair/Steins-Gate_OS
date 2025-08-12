@@ -1,0 +1,34 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+choice="${1:-}"
+run(){ nohup bash -lc "$1" >/dev/null 2>&1 & disown; }
+
+menu() {
+  echo "1) Force kill current window (xkill)"
+  echo "2) Restart Cinnamon (cinnamon --replace)"
+  echo "3) Kill HUD (pkill conky)"
+  echo "4) Reload HUD (conky -c ~/.config/conky/steinsgate.conf)"
+  echo "5) Cycle modes (sg-mode cycle)"
+  echo "6) Open terminal (gnome-terminal/x-terminal-emulator)"
+  echo -n "Select: "
+}
+
+if [ -z "$choice" ]; then
+  if command -v zenity >/dev/null 2>&1; then
+    choice=$(zenity --list --title="Steins;Gate Rescue" --column=Action \
+      "xkill" "restart-cinnamon" "kill-hud" "reload-hud" "cycle-mode" "terminal" || echo "")
+  else
+    menu; read -r choice
+  fi
+fi
+
+case "$choice" in
+  1|"xkill") run "xkill";;
+  2|"restart-cinnamon") run "cinnamon --replace";;
+  3|"kill-hud") pkill -x conky || true;;
+  4|"reload-hud") pkill -x conky || true; run "conky -c ~/.config/conky/steinsgate.conf";;
+  5|"cycle-mode") run "sg-mode cycle";;
+  6|"terminal") if command -v gnome-terminal >/dev/null 2>&1; then run "gnome-terminal"; else run "x-terminal-emulator"; fi;;
+  *) exit 0;;
+esac

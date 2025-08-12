@@ -1,0 +1,10 @@
+[Unit]
+Description=SteinsGate Logout Sound
+Before=logout.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/canberra-gtk-play -i service-logout
+
+[Install]
+WantedBy=default.target

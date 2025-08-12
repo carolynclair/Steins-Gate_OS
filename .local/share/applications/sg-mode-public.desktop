@@ -1,0 +1,6 @@
+[Desktop Entry]
+Type=Application
+Name=Steins;Gate: Public Mode
+Exec=sg-mode public
+Icon=preferences-system
+Categories=Utility;

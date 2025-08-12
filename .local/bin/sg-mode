@@ -1,0 +1,76 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+MODE="${1:-}"
+WALL_DIR="$HOME/Pictures/SteinsGate-Wallpapers"
+LAB_WP="$WALL_DIR/lab.png"
+PUB_WP="$WALL_DIR/okabe.png"
+CONKY_AUTOSTART="$HOME/.config/autostart/conky-steinsgate.desktop"
+
+have_gsettings() { command -v gsettings >/dev/null 2>&1; }
+
+apply_theme() {
+  local gtk="$1" icons="$2" font="$3" wp="$4"
+  if have_gsettings; then
+    gsettings set org.cinnamon.desktop.interface gtk-theme "$gtk" || true
+    gsettings set org.cinnamon.desktop.interface icon-theme "$icons" || true
+    gsettings set org.cinnamon.desktop.interface font-name "$font" || true
+    [ -f "$wp" ] && gsettings set org.cinnamon.desktop.background picture-uri "file://$wp" || true
+  fi
+}
+
+enable_conky() {
+  mkdir -p "$(dirname "$CONKY_AUTOSTART")"
+  local cfg="$1"
+  cat > "$CONKY_AUTOSTART" <<EOF2
+[Desktop Entry]
+Type=Application
+Exec=conky -c $cfg
+Hidden=false
+NoDisplay=false
+X-GNOME-Autostart-enabled=true
+Name=Conky SteinsGate HUD
+EOF2
+}
+
+disable_conky() {
+  [ -f "$CONKY_AUTOSTART" ] && rm -f "$CONKY_AUTOSTART"
+  pkill -x conky || true
+}
+
+current_mode_file="$HOME/.local/share/.sg_mode"
+current_mode="public"; [ -f "$current_mode_file" ] && current_mode="$(cat "$current_mode_file" 2>/dev/null || echo public)"
+
+case "${MODE}" in
+  public|"")
+    # Clean, work-safe
+    disable_conky
+    apply_theme "Adwaita-dark" "Papirus" "Sans 10" "$PUB_WP"
+    echo public > "$current_mode_file"
+    ;;
+
+  lab)
+    # Our Steins;Gate Lab
+    enable_conky "$HOME/.config/conky/steinsgate.conf"
+    apply_theme "Materia-dark" "Papirus-Dark" "Fira Code Retina 10" "$LAB_WP"
+    echo lab > "$current_mode_file"
+    ;;
+
+  chaos)
+    # Flashy showcase HUD
+    enable_conky "$HOME/.config/conky/steinsgate_chaos.conf"
+    apply_theme "Materia-dark" "Papirus-Dark" "Fira Code Retina 10" "$LAB_WP"
+    echo chaos > "$current_mode_file"
+    ;;
+
+  cycle)
+    case "$current_mode" in
+      public) exec "$0" lab ;;
+      lab)    exec "$0" chaos ;;
+      *)      exec "$0" public ;;
+    esac
+    ;;
+
+  *)
+    echo "usage: sg-mode [public|lab|chaos|cycle]"; exit 1;;
+esac

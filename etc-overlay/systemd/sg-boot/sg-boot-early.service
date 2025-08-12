@@ -1,0 +1,13 @@
+[Unit]
+Description=Steins;Gate Boot Message (early)
+After=plymouth-start.service
+Requires=plymouth-start.service
+DefaultDependencies=no
+Before=systemd-user-sessions.service
+
+[Service]
+Type=oneshot
+ExecStart=/bin/plymouth message --text="Initiating divergence protocol…"
+
+[Install]
+WantedBy=multi-user.target

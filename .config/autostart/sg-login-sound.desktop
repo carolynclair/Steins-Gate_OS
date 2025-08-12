@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=Application
+Exec=canberra-gtk-play -i service-login
+Hidden=false
+NoDisplay=false
+X-GNOME-Autostart-enabled=true
+Name=SteinsGate Login Sound

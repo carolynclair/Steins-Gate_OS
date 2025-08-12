@@ -1,0 +1,6 @@
+[Unit]
+Description=Steins;Gate Wallpaper Rotator
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/env bash -lc 'H=$(date +%H); if [ "$H" -ge 22 ] || [ "$H" -lt 5 ]; then sg-wall next; else sg-wall byclock; fi'

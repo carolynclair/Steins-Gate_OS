@@ -1,0 +1,6 @@
+[Desktop Entry]
+Type=Application
+Name=Steins;Gate: Chaos Mode
+Exec=sg-mode chaos
+Icon=applications-system
+Categories=Utility;

@@ -1,0 +1,6 @@
+[Desktop Entry]
+Type=Application
+Name=Steins;Gate: Lab Mode
+Exec=sg-mode lab
+Icon=utilities-terminal
+Categories=Utility;

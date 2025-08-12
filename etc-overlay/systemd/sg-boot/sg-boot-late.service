@@ -1,0 +1,11 @@
+[Unit]
+Description=Steins;Gate Boot Message (late)
+After=network-online.target plymouth-start.service
+Requires=plymouth-start.service
+
+[Service]
+Type=oneshot
+ExecStart=/bin/plymouth message --text="Worldline sync: OK. Lab systems coming online…"
+
+[Install]
+WantedBy=multi-user.target
