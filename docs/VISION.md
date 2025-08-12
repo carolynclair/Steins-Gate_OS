@@ -1,6 +1,7 @@
  Themes & Ideas
 
-![Tuturuu First Edition.png](Tuturuu_First_Edition.png)
+<img width="1024" height="1024" alt="Tuturuu First Edition" src="https://github.com/user-attachments/assets/347e6bee-0e91-4cca-a350-3eecac4425b8" />
+
 
 **Quick Breakdown:**
 
@@ -14,21 +15,19 @@
 
 Steins;Gate OS v.1
 
-![Steins;Logo.png](SteinsLogo.png)
+<img width="1024" height="1024" alt="Steins;Logo" src="https://github.com/user-attachments/assets/9378441d-1f0b-41c2-987e-6a13e0cd47b5" />
 
-Tuturuuu~~ (MayushiAI Terminal) First Edition
 
-![TuturuuTerminal.png](TuturuuTerminal.png)
-
+<img width="1024" height="1024" alt="TuturuuTerminal" src="https://github.com/user-attachments/assets/f884007f-56a5-4f01-bbbf-9e18f8440f6f" />
 - A **retro-futuristic terminal** window with phosphor green text,
 - Divergence meter integrated at the top,
 - Mayuri’s little Tuturuu~ cameo in the corner,
 - Soft CRT scanlines + warm vignette for that *"lab equipment"* vibe.
+  
 
 **📐 Steins;Gate OS Desktop Environment Architecture**
 
-![Steins;Vironment.png](SteinsVironment.png)
-
+<img width="1024" height="1024" alt="Steins;Vironment" src="https://github.com/user-attachments/assets/012336c5-7987-410a-818e-8f1b79f0cda9" />
 1. **Panel / Taskbar** – bottom-aligned, single row.
     - Left: Lab logo start menu (custom menu with Steins;Gate gear icon).
     - Center: Active app list / task switcher.
@@ -50,12 +49,17 @@ Tuturuuu~~ (MayushiAI Terminal) First Edition
 
 Steins;Gate OS v2
 
-![Steins;Gate OS Logo v2.png](SteinsGate_OS_Logo_v2.png)
+<img width="1024" height="1024" alt="Steins;Gate OS Logo v2" src="https://github.com/user-attachments/assets/10129eb8-2446-474e-ab4f-3914a41db2c9" />
+
 
 **Steins;Gate OS Branding Designs**
 
-![Steins;Gate OS Branding Designs.png](SteinsGate_OS_Branding_Designs.png)
+<img width="1536" height="1024" alt="Steins;Gate OS Branding Designs" src="https://github.com/user-attachments/assets/730d7f2d-75f1-4390-b4d6-47056779b63c" />
+
+
 
 **Burrito AKA El Psy Kongroo - Pure Enlightment Moment.**
 
-![Burrito AKA El Psy Kongroo. Sun Tzu Enlightment moment.png](Burrito_AKA_El_Psy_Kongroo._Sun_Tzu_Enlightment_moment.png)
+<img width="1024" height="1536" alt="Burrito AKA El Psy Kongroo  Sun Tzu Enlightment moment" src="https://github.com/user-attachments/assets/d41026d3-5c17-414e-a9c7-4b2d33fa22cd" />
+
+
