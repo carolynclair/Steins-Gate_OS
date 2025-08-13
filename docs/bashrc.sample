@@ -1,0 +1,24 @@
+# Sample .bashrc additions for Steins;Gate OS
+
+# ASCII Art and Welcome
+cat <<'EOF'
+ | | | |  _ \ ___ _   _  | |/ /  _ __   __ _ _ __ ___   ___
+ |  | | | | |) / | | | | | ' // _ \| ' \ / _ | '/ _ \ / _ \
+ | || | |  /\ \ || | | . \ () | | | | (| | | | () | () |
+ ||| ||   |/\, | ||\/|| ||\, ||  \/ \/
+ |/                   |__/
+Welcome to Steins;Gate OS, Lab Member 001.
+EOF
+
+# Play login sound
+if command -v paplay >/dev/null; then
+  paplay ~/.local/share/sounds/sgos/login.ogg &
+elif command -v aplay >/dev/null; then
+  aplay ~/.local/share/sounds/sgos/login.ogg &
+fi
+
+# Steins;Gate log system
+mkdir -p ~/SteinsGateLogs
+sg-logpush() {
+  echo "[$(date '+%Y-%m-%d %H:%M:%S')] $1: $2" >> ~/SteinsGateLogs/worldline.log
+}

@@ -1,0 +1,51 @@
+/* Steins;Gate OS Custom GTK Theme (GTK 3) */
+
+@define-color accent_orange #ff9800;
+@define-color bg_dark #181c20;
+@define-color fg_light #e0e0e0;
+@define-color selection_green #00ff99;
+@define-color button_bg #23272e;
+@define-color button_fg #ff9800;
+
+* {
+    background-color: @bg_dark;
+    color: @fg_light;
+    font-family: 'Fira Mono', 'Monospace', monospace;
+}
+
+button, .button {
+    background-color: @button_bg;
+    color: @button_fg;
+    border-radius: 6px;
+    border: 2px solid @accent_orange;
+    box-shadow: 0 0 4px @accent_orange;
+}
+
+button:hover, .button:hover {
+    background-color: @accent_orange;
+    color: @bg_dark;
+}
+
+entry, .entry {
+    background-color: shade(@bg_dark, 1.1);
+    color: @fg_light;
+    border: 1px solid @accent_orange;
+}
+
+headerbar, .header-bar {
+    background-color: @bg_dark;
+    color: @accent_orange;
+    border-bottom: 2px solid @accent_orange;
+}
+
+scrollbar slider {
+    background: @accent_orange;
+    border-radius: 8px;
+}
+
+selection, .selection {
+    background-color: @selection_green;
+    color: @bg_dark;
+}
+
+/* Add more widget customizations as desired */

@@ -1,0 +1,7 @@
+# Steins;Gate OS - Systemd user units for Notion log push
+[Unit]
+Description=Push Steins;Gate logs to Notion
+
+[Service]
+Type=oneshot
+ExecStart=%h/.local/bin/sg-notion-push

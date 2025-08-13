@@ -42,3 +42,33 @@ _Theories are nothing more than words. Accept what you’ve seen._
 
 ---
 
+## 🚀 Installation
+
+1. Clone this repo and enter the directory:
+  ```bash
+  git clone https://github.com/carrollclair/Steins-Gate_OS.git
+  cd Steins-Gate_OS/installer
+  ```
+2. Run the installer:
+  ```bash
+  bash apply.sh
+  ```
+3. Select the `steinsgate-gtk` theme in your appearance settings.
+4. Reboot to enjoy the full Steins;Gate experience!
+
+## 📝 Features
+- Divergence Meter boot splash (Plymouth)
+- Custom LightDM login with Steins;Gate backgrounds
+- Terminal branding, sounds, and log system
+- Notion sync for worldline logs
+- Wallpaper rotation and Conky Divergence Meter
+
+## 🛠 Customization
+- Place your wallpapers in `~/Pictures/SteinsGate-Wallpapers/`
+- Edit `~/.bashrc` for terminal branding and sounds
+- Tweak `~/.conkyrc` for system monitor style
+- Update GTK theme in `~/.themes/steinsgate-gtk/gtk-3.0/gtk.css`
+
+## 📖 Credits
+Inspired by Steins;Gate. For personal, non-commercial use.
+

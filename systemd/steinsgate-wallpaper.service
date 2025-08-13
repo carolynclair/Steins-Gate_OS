@@ -1,0 +1,6 @@
+[Unit]
+Description=Rotate Steins;Gate wallpaper every hour
+
+[Service]
+Type=oneshot
+ExecStart=%h/rotate-wallpaper.sh

@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Exec=conky -c /home/$USER/.conkyrc
+Hidden=false
+NoDisplay=false
+X-GNOME-Autostart-enabled=true
+Name=Conky Divergence Meter
+Comment=Steins;Gate system monitor

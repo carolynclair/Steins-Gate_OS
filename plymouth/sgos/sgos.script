@@ -1,0 +1,53 @@
+# Steins;Gate OS Plymouth Script
+
+import plymouth
+
+# Set up images (replace with your actual image filenames)
+ImageDir = "/usr/share/plymouth/themes/steinsgate"
+background_image = ImageDir + "/background.png"
+divergence_meter = ImageDir + "/divergence_meter.png"
+gear_image = ImageDir + "/gear.png"
+
+function draw_background () {
+	Window.SetBackgroundTopColor (0.0, 0.0, 0.0); # Black background
+	Window.SetBackgroundBottomColor (0.0, 0.0, 0.0);
+	Window.DrawImage (background_image, 0, 0, Window.GetWidth(), Window.GetHeight());
+}
+
+function draw_progress_bar (progress) {
+	# Draw the Divergence Meter progress bar
+	bar_width = Window.GetWidth() * 0.6;
+	bar_height = 32;
+	bar_x = (Window.GetWidth() - bar_width) / 2;
+	bar_y = Window.GetHeight() * 0.8;
+	Window.DrawImage (divergence_meter, bar_x, bar_y, bar_width, bar_height);
+	Window.DrawRect (bar_x, bar_y, bar_width * progress, bar_height, 0.0, 1.0, 0.0, 0.7); # Green glow
+}
+
+function draw_gears () {
+	# Placeholder for animated gears
+	# Window.DrawImage (gear_image, ...)
+}
+
+function draw_flicker () {
+	# Placeholder for flicker effect and "WORLD LINE CHANGE DETECTED"
+}
+
+on boot {
+	draw_background ();
+	draw_gears ();
+	draw_progress_bar (0.0);
+}
+
+on progress {
+	draw_background ();
+	draw_gears ();
+	draw_progress_bar (Progress);
+	if (Progress > 0.7) {
+		draw_flicker ();
+	}
+}
+
+on quit {
+	# Clean up if needed
+}

@@ -1,0 +1,8 @@
+# Steins;Gate Plymouth Theme
+[SteinsGate]
+Name=steinsgate
+Description=Steins;Gate Divergence Meter Boot Splash
+ModuleName=script
+ImageDir=/usr/share/plymouth/themes/steinsgate
+ScriptFile=sgos.script
+
