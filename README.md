@@ -46,7 +46,7 @@ _Theories are nothing more than words. Accept what you’ve seen._
 
 1. Clone this repo and enter the directory:
   ```bash
-  git clone https://github.com/carrollclair/Steins-Gate_OS.git
+  git clone https://github.com/carolynclair/Steins-Gate_OS.git
   cd Steins-Gate_OS/installer
   ```
 2. Run the installer:
