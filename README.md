@@ -1,5 +1,5 @@
 
-<img width="1024" height="1024" alt="Steins;Logo" src="https://github.com/user-attachments/assets/43e09156-9ff4-4287-a824-283895ea2915" />
+![Steins;Gate OS Logo](TuturuuFirstEdition.png)
 
 
 
